@@ -1,4 +1,5 @@
-/.idea/*
-/target/*
+$ cat .gitignore
+/.idea/**
+/target/**
 
 
