@@ -140,6 +140,13 @@ public class OnlinerFillingFormsWithLocatorsClassTest {
         batteryCapacitySecondInputField.sendKeys("64");
 
     }
+    
+    @AfterTest
+    public void teardown(){
+        driver.quit();
+    }
+    
+}
 
 
 }
