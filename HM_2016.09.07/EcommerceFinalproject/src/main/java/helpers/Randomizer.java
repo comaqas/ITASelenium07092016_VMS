@@ -25,24 +25,23 @@ public class Randomizer {
 
 
     public static String getRandomEmail() {
-        //String[] emails = {"@tut.by", "@yahoo.com", "@gmail.com", "@mail.ru", "@bk.ru"};
         return getRandomAlphabeticString().concat("@yahoo.com");
     }
 
 
     public static String getRandomYear() {
-        int minYear = 1970;
-        int maxYear = 2000;
-        int randomValue = minYear + (int)(Math.random() * ((maxYear - minYear) + 1));
+        final int MIN_YEAR = 1970;
+        final int MAX_YEAR = 2000;
+        int randomValue = MIN_YEAR + (int)(Math.random() * ((MAX_YEAR - MIN_YEAR) + 1));
         String randomYear = String.valueOf(randomValue);
         return randomYear;
     }
 
 
     public static String getRandomMonth() {
-        int minMonth = 1;
-        int maxMonth = 12;
-        int randomValue = minMonth + (int)(Math.random() * ((maxMonth - minMonth) + 1));
+        final int MIN_MONTH = 1;
+        final int MAX_MONTH = 12;
+        int randomValue = MIN_MONTH + (int)(Math.random() * ((MAX_MONTH - MIN_MONTH) + 1));
         String randomMonth = String.valueOf(randomValue);
         return randomMonth;
     }
@@ -90,9 +89,9 @@ public class Randomizer {
 
 
     public static String getRandomState() {
-        int minState = 1;
-        int maxState = 50;
-        int randomValue = minState + (int)(Math.random() * ((maxState - minState) + 1));
+        final int MIN_STATE = 1;
+        final int MAX_STATE = 50;
+        int randomValue = MIN_STATE + (int)(Math.random() * ((MAX_STATE - MIN_STATE) + 1));
         String randomState = String.valueOf(randomValue);
         return randomState;
     }
