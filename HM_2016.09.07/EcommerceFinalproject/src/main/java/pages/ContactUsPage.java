@@ -1,6 +1,7 @@
 package pages;
 
 import com.codeborne.selenide.SelenideElement;
+import data.ContactUsData;
 import helpers.Locators;
 import org.openqa.selenium.By;
 import static com.codeborne.selenide.Condition.*;
@@ -21,13 +22,12 @@ public class ContactUsPage {
     private static final By SUCCESS_ALERT = Locators.get("successAlert");
 
 
-    public static void completeMessageFormWithData(String item, String email, String order,
-                                                   String pathToFile,String message){
-        $(SUBJECT_DROP_DOWN_LIST).selectOptionByValue(item);
-        $(EMAIL_ADDRESS_INPUT).setValue(email);
-        $(ORDER_REFERENCE).sendKeys(order);
-        $(UPLOAD_FILE_BUTTON).uploadFile(new File(pathToFile));
-        $(TEXT_MESSAGE_WINDOW).setValue(message);
+    public static void completeMessageFormWith(ContactUsData data){
+        $(SUBJECT_DROP_DOWN_LIST).selectOptionByValue(data.subject);
+        $(EMAIL_ADDRESS_INPUT).setValue(data.email);
+        $(ORDER_REFERENCE).sendKeys(data.order);
+        $(UPLOAD_FILE_BUTTON).uploadFile(new File(data.pathToFile));
+        $(TEXT_MESSAGE_WINDOW).setValue(data.message);
         $(SUBMIT_BUTTON).click();
     }
 

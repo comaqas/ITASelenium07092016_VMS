@@ -1,11 +1,14 @@
 import core.TestBase;
 import elements.Header;
+import org.testng.annotations.Listeners;
 import pages.CatalogPage;
 
 import org.testng.Assert;
 import org.testng.annotations.Test;
+import utils.ScreenShooter;
 
 
+@Listeners(ScreenShooter.class)
 public class CatalogTest extends TestBase{
 
     String targetProductName = "T-shirts";

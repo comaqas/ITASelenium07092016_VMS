@@ -1,33 +1,22 @@
 import core.TestBase;
+import data.RegistryData;
 import elements.Header;
 import helpers.Randomizer;
-import org.testng.annotations.AfterMethod;
-import org.testng.annotations.AfterTest;
-import pages.RegistrationPage;
+import pages.RegistryPage;
+import utils.ScreenShooter;
 import pages.LoginPage;
 
 import org.testng.Assert;
 import org.testng.annotations.Test;
+import org.testng.annotations.Listeners;
 
 import static com.codeborne.selenide.Selenide.title;
 
 
+@Listeners(ScreenShooter.class)
 public class RegistryTest extends TestBase{
 
     String email = Randomizer.getRandomEmail();
-    String firstName = Randomizer.getRandomAlphabeticString();
-    String lastName = Randomizer.getRandomAlphabeticString();
-    String password = Randomizer.getRandomAlphanumericString();
-    String day = Randomizer.getRandomDay();
-    String month = Randomizer.getRandomMonth();
-    String year = Randomizer.getRandomYear();
-    String company = Randomizer.getRandomCompany();
-    String address = Randomizer.getRandomAddress();
-    String city = Randomizer.getRandomCity();
-    String state = Randomizer.getRandomState();
-    String postCode = Randomizer.getRandomPostCode();
-    String mobileNumber = Randomizer.getRandomMobilePhone();
-
     String myAccountPageTitle = "My account - My Store";
 
 
@@ -35,12 +24,12 @@ public class RegistryTest extends TestBase{
     public void accountForm_CompleteRequiredFieldsWithValidData_MyAccountIsOpened(){
         Header.navigateToLoginPage();
         LoginPage.navigateToRegistrationPageByEntering(email);
-        RegistrationPage.completeRegistryFormByEntering(firstName, lastName, password, day, month, year, company,
-                address, city, state, postCode, mobileNumber);
+
+        RegistryData registryData = new RegistryData();
+        RegistryPage.completeRegistryFormByEntering(registryData);
 
         Assert.assertTrue(title().equals(myAccountPageTitle), "Account is not created. " +
                 "My Account Page is not displayed");
-        Header.logout();
     }
 
 

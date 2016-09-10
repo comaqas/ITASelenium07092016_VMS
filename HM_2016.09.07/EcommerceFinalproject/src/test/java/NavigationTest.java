@@ -1,10 +1,13 @@
 import core.TestBase;
 import elements.Header;
+import org.testng.annotations.Listeners;
 import pages.HomePage;
 
-import org.testng.Assert;
 import org.testng.annotations.Test;
+import utils.ScreenShooter;
 
+
+@Listeners(ScreenShooter.class)
 public class NavigationTest extends TestBase{
 
     String expectedHeading = "Automation Practice Website";

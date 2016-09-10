@@ -1,10 +1,12 @@
 package pages;
 
+import com.codeborne.selenide.Condition;
+import com.codeborne.selenide.Selenide;
 import core.PageBase;
 import elements.Header;
 import helpers.Locators;
 
-import com.codeborne.selenide.Condition;
+import com.codeborne.selenide.Condition.*;
 import com.codeborne.selenide.SelenideElement;
 import static com.codeborne.selenide.Selenide.$;
 import org.openqa.selenium.By;
@@ -36,7 +38,8 @@ public class CartPage extends PageBase{
         int minProductIndex = 0;
         int maxProductIndex = products.size()-1;
         int randomProductIndex = minProductIndex + (int)(Math.random() * ((maxProductIndex - minProductIndex) + 1));
-        products.get(randomProductIndex).hover().$(ADD_TO_CART_BUTTON).click();
+
+        products.get(randomProductIndex).hover().$(ADD_TO_CART_BUTTON).waitUntil(Condition.visible, 10000).click();
 
         String selectedProductNameInPopUp = $(SELECTED_PRODUCT_NAME_IN_POPUP).getAttribute(htmlAttribute);
 

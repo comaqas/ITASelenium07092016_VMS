@@ -1,14 +1,17 @@
 import core.TestBase;
 import elements.Header;
+import utils.ScreenShooter;
 import pages.CartPage;
 import pages.LoginPage;
-import pages.myAccountPages.MyAccountPage;
-import pages.myAccountPages.OrderHistoryPage;
+import pages.accountPages.MyAccountPage;
+import pages.accountPages.OrderHistoryPage;
 
+import org.testng.annotations.Listeners;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
 
+@Listeners(ScreenShooter.class)
 public class ShoppingTest extends TestBase {
 
     String email = "UserEmail@mail.ru";

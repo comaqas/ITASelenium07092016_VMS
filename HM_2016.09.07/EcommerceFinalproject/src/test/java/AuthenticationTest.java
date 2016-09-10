@@ -1,11 +1,13 @@
 import core.TestBase;
 import elements.Header;
+import org.testng.annotations.Listeners;
 import pages.LoginPage;
 
 import org.testng.Assert;
 import org.testng.annotations.Test;
+import utils.ScreenShooter;
 
-
+@Listeners(ScreenShooter.class)
 public class AuthenticationTest extends TestBase {
 
     String email = "UserEmail@mail.ru";

@@ -2,7 +2,6 @@ package helpers;
 
 import org.apache.commons.lang3.RandomStringUtils;
 
-import java.util.Random;
 
 public class Randomizer {
 
@@ -17,9 +16,9 @@ public class Randomizer {
 
 
     public static String getRandomSubjectHeading() {
-        int minMonth = 1;
-        int maxMonth = 2;
-        int randomValue = minMonth + (int)(Math.random() * ((maxMonth - minMonth) + 1));
+        final int MIN_MONTH = 1;
+        final int MAX_MONTH = 2;
+        int randomValue = MIN_MONTH + (int)(Math.random() * ((MAX_MONTH - MIN_MONTH) + 1));
         String randomMonth = String.valueOf(randomValue);
         return randomMonth;
     }

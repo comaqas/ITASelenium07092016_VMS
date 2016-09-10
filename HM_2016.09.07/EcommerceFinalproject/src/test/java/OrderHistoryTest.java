@@ -1,19 +1,22 @@
 import core.TestBase;
 import elements.Header;
-import org.testng.annotations.AfterTest;
 import pages.LoginPage;
-import pages.myAccountPages.MyAccountPage;
-import pages.myAccountPages.OrderHistoryPage;
+import pages.accountPages.MyAccountPage;
+import pages.accountPages.OrderHistoryPage;
+import utils.ScreenShooter;
 
 import org.testng.annotations.Test;
+import org.testng.Assert;
+import org.testng.annotations.Listeners;
 
 import java.io.FileNotFoundException;
 
+
+@Listeners(ScreenShooter.class)
 public class OrderHistoryTest extends TestBase{
 
     String email = "UserEmail@mail.ru";
     String password = "Password123";
-    String expectedFileName = "IN000899";
 
 
     @Test
@@ -21,11 +24,8 @@ public class OrderHistoryTest extends TestBase{
         Header.navigateToLoginPage();
         LoginPage.loginByEntering(email, password);
         MyAccountPage.navigateToOrderHistoryPage();
-        OrderHistoryPage.isDownloadFileNameIdenticalTo(expectedFileName);
+        Assert.assertTrue(OrderHistoryPage.isFirstFileDownloadingSuccessful(),
+                "File doesn't exist in download Folder");
     }
 
-    @AfterTest
-    public void logout(){
-        Header.logout();
-    }
 }
